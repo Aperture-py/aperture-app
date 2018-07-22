@@ -11,7 +11,7 @@
   <div class="my-5">
     <h2 class="text-center">Your images are ready for download.</h2>
     <div class="text-center my-5">
-      {{#x-toggle value=zipResFolders showLabels=true onToggle=(action (mut zipResFolders)) as |toggle|}}
+      {{#x-toggle value=useResFolders showLabels=true onToggle=(action (mut useResFolders)) as |toggle|}}
         <p class="pr-3 mb-0">Create separate folders in your download for each image resolution?</p>
         {{toggle.switch theme='skewed' onLabel='Yes' offLabel='No'}}
       {{/x-toggle}}
@@ -36,6 +36,15 @@
             </div>
           {{/if}}
           <button type="button" class="btn btn-success btn-sm btn-block mt-3" onclick= {{action 'downloadZip'}}>Download Zip</button>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 offset-md-3 py-3">
+        <hr>
+      </div>
+      <div class="col-12 col-md-6 offset-md-3">
+        <div class="px-0 px-lg-5">
+          <h6 class="text-center mb-4 font-weight-bold">Save To Folder</h6>
+          <button type="button" class="btn btn-secondary btn-sm btn-block mt-3" onclick= {{action 'saveLocally'}}>Save</button>
         </div>
       </div>
       <div class="col-12 col-md-6 offset-md-3 py-3">

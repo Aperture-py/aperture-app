@@ -17,7 +17,13 @@
     "test": "ember test"
   },
   "devDependencies": {
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "broccoli-asset-rev": "^2.4.5",
+    "devtron": "^1.4.0",
+    "electron-forge": "^5.2.2",
+    "electron-prebuilt-compile": "2.0.4",
     "ember-ajax": "^3.1.0",
     "ember-cli": "~3.1.4",
     "ember-cli-app-version": "^3.0.0",
@@ -39,6 +45,7 @@
     "ember-concurrency": "^0.8.19",
     "ember-cp-validations": "^4.0.0-beta.1",
     "ember-data": "~3.1.0",
+    "ember-electron": "^2.8.0",
     "ember-export-application-global": "^2.0.0",
     "ember-file-upload": "^2.5.0",
     "ember-load-initializers": "^1.0.0",
@@ -59,7 +66,13 @@
   },
   "dependencies": {
     "bootstrap": "^4.1.1",
+    "electron-compile": "^6.4.3",
+    "electron-protocol-serve": "^1.3.0",
+    "electron-squirrel-startup": "^1.0.0",
     "file-saver": "^1.3.8",
     "jszip": "^3.1.5"
+  },
+  "config": {
+    "forge": "./ember-electron/electron-forge-config.js"
   }
 }

@@ -1,0 +1,65 @@
+<div class="d-flex">
+  <h5 class="mr-auto">Images</h5>
+  <button type="button" class="btn btn-outline-success btn-sm float-right" onclick= {{action 'uploadImages'}}>Upload Images</button>
+</div>
+<hr>
+<p>
+  <small>
+    Specify the quality level that will be applied to all of your images. You can override the quality level for a specific image
+    by selecting it.
+  </small>
+</p>
+<div class="row no-gutters mb-4">
+  <div class="col-12 col-md-5">
+    <div class="input-group input-group-sm">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Image Quality</span>
+      </div>
+      {{input type="text" class="form-control" placeholder="1-95" value=quality focus-out=(action (mut showQualityError) true)}}
+    </div>
+    {{#if showQualityError}}
+      <div class="apt-input-error">
+        {{validations.attrs.quality.message}}
+      </div>
+    {{/if}}
+  </div>
+</div>
+{{#file-dropzone name="images" as |dropzone queue|}}
+  {{#if queue.files.length}}
+    <div class="{{if dropzone.supported 'd-none' 'd-flex justify-content-end'}}">
+      {{#file-upload name="images" accept="image/*" multiple=true}}
+        <a tabindex=0>Add more images</a>
+      {{/file-upload}}
+    </div>
+    <div class="d-flex justify-content-between">
+      <h6>Images: {{queue.files.length}}</h6>
+      <h6>Upload Size:
+        <span class="{{if (gt queue.size maxQueueSize) 'text-danger'}}">{{format-bytes queue.size}} / {{format-bytes maxQueueSize}}</span>
+      </h6>
+    </div>
+    <div class="apt-images-container p-2 my-2 {{if (and dropzone.active (not dropzone.valid)) 'apt-dropzone-invalid'}}">
+      <div class="row no-gutters">
+        {{#each queue.files as |image|}}
+          <div class="col-auto p-2">
+            {{apt-image image=image imageSelected=(action 'imageSelected') removeImage=(action 'removeImage')}}
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  {{else}}
+    <div class="apt-images-container-empty">
+      <div class="row no-gutters h-100 align-items-center">
+        <div class="col text-center">
+          <p class="mb-0 p-2">
+            {{#if dropzone.supported}}
+              Drag and drop images onto this area or
+            {{/if}}
+            {{#file-upload class="mb-0" name="images" accept="image/*" multiple=true}}
+              <a tabindex=0>click here to add an image</a>
+            {{/file-upload}}
+          </p>
+        </div>
+      </div>
+    </div>
+  {{/if}}
+{{/file-dropzone}}

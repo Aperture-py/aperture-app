@@ -1,0 +1,15 @@
+<h5 class="mr-auto">Resizing</h5>
+<hr>
+<div class="apt-resolutions">
+  {{#unless rs.resolutions.length}}
+    <p>
+      <small>Add image resolutions if you would like resized copies of your images.</small>
+    </p>
+  {{/unless}}
+  <div class="d-flex justify-content-center my-4">
+    {{apt-resolution-input resolutions=rs.resolutions saveResolution=(action 'saveResolution')}}
+  </div>
+  <div class="apt-resolutions-list mt-4 mx-5">
+    {{apt-resolution-list resolutions=rs.resolutions removeResolution=(action 'removeResolution')}}
+  </div>
+</div>

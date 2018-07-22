@@ -1,0 +1,73 @@
+<div class="d-flex">
+  <h5 class="mr-auto">{{image.name}}</h5>
+  <button type="button" class="btn btn-outline-success btn-sm mr-1" onclick= {{action 'saveChanges'}}>Save Override</button>
+  <button type="button" class="btn btn-outline-primary btn-sm" onclick= {{action 'backToUpload'}}>Back To Images</button>
+</div>
+<hr>
+<div class="row no-gutters">
+  <div class="col-12 col-md-8 pr-0 pr-md-4">
+    <div class="apt-preview d-flex justify-content-center p-4">
+      {{apt-image isPreview=true disableRemove=true image=image}}
+    </div>
+  </div>
+  <div class="col-12 col-md-4 pt-4 pt-md-0">
+    <div class="input-group input-group-sm">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Image Quality</span>
+      </div>
+      {{input type="text" class="form-control" placeholder="1-95" value=override.quality focus-out=(action (mut showQualityError) true)}}
+    </div>
+    {{#if showQualityError}}
+      <div class="apt-input-error">
+        {{validations.attrs.override.quality.message}}
+      </div>
+    {{/if}}
+    <fieldset class="form-group mt-4">
+      <div class="row no-gutters justify-content-start">
+        <div class="col pr-4">
+          <p>
+            <small>
+              Use watermarking settings?
+            </small>
+          </p>
+        </div>
+        <div class="col-auto">
+          {{#x-toggle value=override.useWatermark showLabels=true onToggle=(action (mut override.useWatermark)) as |toggle|}}
+            {{toggle.switch theme='skewed' onLabel='Yes' offLabel='No'}}
+          {{/x-toggle}}
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
+<hr>
+<div class="text-center mt-4">
+  <p>
+    <small>Add custom resolutions to this image, or exclude any that you created in the Resizing section.</small>
+  </p>
+</div>
+<div class="d-flex justify-content-center my-4">
+  {{apt-resolution-input resolutions=inclusions saveResolution=(action 'addResolutionInclusion')}}
+</div>
+<div class="row no-gutters mt-2 justify-content-center">
+  <div class="col-4 px-2">
+    {{#if rsWithExclusions.length}}
+      <p>
+        <small>Resolutions from the resizing section.</small>
+      </p>
+      <div class="apt-override-resolutions">
+        {{apt-resolution-list resolutions=rsWithExclusions removeResolution=(action 'addResolutionExclusion')}}
+      </div>
+    {{/if}}
+  </div>
+  <div class="col-4 px-2">
+    {{#if inclusions.length}}
+      <p>
+        <small>Resolutions applied to just this image.</small>
+      </p>
+      <div class="apt-override-resolutions">
+        {{apt-resolution-list resolutions=inclusions removeResolution=(action 'removeResolutionInclusion')}}
+      </div>
+    {{/if}}
+  </div>
+</div>

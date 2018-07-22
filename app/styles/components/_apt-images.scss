@@ -1,0 +1,15 @@
+.apt-images-container {
+  height: 25em;
+  @include media-breakpoint-only(lg) {
+    height: 29em;
+  }
+  overflow-y: auto;
+  background-color: rgb(247, 247, 247);
+  border-radius: 8px;
+}
+
+.apt-images-container-empty {
+  @extend .apt-dropzone-empty;
+  @extend .apt-images-container;
+  background-color: transparent;
+}

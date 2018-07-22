@@ -1,0 +1,20 @@
+.apt-dropzone-empty {
+  border: 3px dotted grey;
+  border-radius: 8px;
+}
+
+.apt-dropzone-invalid {
+  background-color: rgba(255, 45, 45, 0.7);
+}
+
+.apt-dropzone-valid {
+  background-color: green;
+}
+
+.apt-dropzone-container {
+  font-size: 1.25em;
+}
+
+.apt-dropzone-init {
+  height: 25em;
+}

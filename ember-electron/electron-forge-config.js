@@ -25,6 +25,6 @@ module.exports = {
   },
   "windowsStoreConfig": {
     "packageName": "",
-    "name": "apertureweb"
+    "name": "apertureapp"
   }
 };

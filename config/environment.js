@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: 'aperture-web',
+    modulePrefix: 'aperture-app',
     environment,
     rootURL: '/',
     locationType: 'auto',

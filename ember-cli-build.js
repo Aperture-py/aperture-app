@@ -4,10 +4,10 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
-    // 'ember-cli-uglify': {
-    //   enabled: true,
-    //   exclude: ['assets/vendor.js']
-    // }
+    'ember-cli-uglify': {
+      enabled: true,
+      exclude: ['assets/vendor.js']
+    }
     // Add options here
   });
   app.import('node_modules/jszip/dist/jszip.js', {

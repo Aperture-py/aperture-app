@@ -30,15 +30,20 @@ app.on('window-all-closed', () => {
 
 app.on('ready', () => {
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600
+    width: 1250,
+    height: 750,
+    minWidth: 1010,
+    minHeight: 575,
+
+    icon: __dirname + '/resources/aperture.png'
   });
 
-  try {
+  //Start window maximized
+  /*try {
     mainWindow.maximize();
   } catch (err) {
     console.log('Could not maximize window!');
-  }
+  }*/
 
   // If you want to open up dev tools programmatically, call
   // mainWindow.openDevTools();

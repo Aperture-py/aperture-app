@@ -1,4 +1,4 @@
-module.exports = {
+  module.exports = {
   "make_targets": {
     "win32": [
       "squirrel"
@@ -12,7 +12,10 @@ module.exports = {
     ]
   },
   "electronPackagerConfig": {
-    "packageManager": "npm"
+    "platform": "all",
+    "packageManager": "npm",
+    "executableName": "Aperture",
+    "icon": __dirname + "/resources/aperture"
   },
   "electronWinstallerConfig": {
     "name": "aperture_web"

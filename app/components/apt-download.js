@@ -22,7 +22,6 @@ const Validations = buildValidations({
 
 export default Component.extend(Validations, {
   us: service('upload'),
-  gd: service('gdrive'),
   ts: service('toast'),
   dm: null,
   zipName: null,
@@ -61,9 +60,6 @@ export default Component.extend(Validations, {
     },
     saveLocally() {
       this.saveLocally();
-    },
-    saveToGoogleDrive() {
-      this.saveToGoogleDrive();
     },
     continueWorking() {
       this.sendAction('continueWorking');
@@ -108,8 +104,5 @@ export default Component.extend(Validations, {
         self.get('ts').error('Failed to save images. Please try again.');
       }
     })();
-  },
-  saveToGoogleDrive() {
-    this.get('gd').loadPicker();
   }
 });

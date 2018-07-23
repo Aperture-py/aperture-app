@@ -50,17 +50,6 @@
       <div class="col-12 col-md-6 offset-md-3 py-3">
         <hr>
       </div>
-      <div class="col-12 col-md-6 offset-md-3">
-        <div class="px-0 px-lg-5">
-          <h6 class="text-center mb-4 font-weight-bold">Save To Google Drive</h6>
-          {{#if gd.isUploading}}
-            <button type="button" class="btn btn-primary btn-sm btn-block" disabled=true>Saving...</button>
-          {{else}}
-            <button type="button" class="btn btn-primary btn-sm btn-block" onclick= {{action 'saveToGoogleDrive'}}>Google Drive</button>
-          {{/if}}
-        </div>
-        <hr>
-      </div>
     </div>
     <div class="d-flex justify-content-center flex-column flex-lg-row mt-4 mx-5">
       <button type="button" class="btn btn-outline-secondary btn-sm mr-0 mr-lg-2 mb-2 mb-lg-0" onclick= {{action 'showResults'}}>View Detailed Results</button>

@@ -70,16 +70,5 @@ module.exports = function(environment) {
     ENV.APP.API_URL = 'https://api.aperture.run';
   }
 
-  ENV.contentSecurityPolicy = {
-    'default-src': ["'none'"],
-    'script-src': ["'self' 'unsafe-inline'"], // unfortunately need inline in order for the ember app to work
-    'font-src': ["'self' https://fonts.gstatic.com"],
-    'connect-src': ["'self'"],
-    'img-src': ["'self'"],
-    'style-src': ["'self' https://fonts.googleapis.com"],
-    'media-src': ["'self'"]
-  };
-  ENV.contentSecurityPolicyMeta = true;
-
   return ENV;
 };

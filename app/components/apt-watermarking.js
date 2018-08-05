@@ -36,10 +36,5 @@ export default Component.extend({
     this.get('fq')
       .find('watermarks')
       .remove(image);
-
-    console.log(
-      'watermark queue after remove: ',
-      this.get('fq').find('watermarks')
-    );
   }
 });

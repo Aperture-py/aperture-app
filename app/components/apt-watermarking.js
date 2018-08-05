@@ -15,8 +15,6 @@ export default Component.extend({
   },
   actions: {
     watermarkAdded(file) {
-      console.log('watermark image added: ', file);
-
       if (
         this.get('fq')
           .find('watermarks')

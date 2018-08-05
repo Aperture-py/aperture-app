@@ -1,0 +1,42 @@
+.apt-image-container {
+  .apt-image {
+    position: relative;
+    img {
+      height: 80px;
+    }
+    .apt-image-remove {
+      cursor: pointer;
+      position: absolute;
+      display: none;
+      right: 0;
+      top: -0.9em;
+      right: -0.9em;
+      border-radius: 50%;
+      height: 2em;
+      width: 2em;
+      background-color: white;
+      text-align: center;
+      border: 3px solid grey;
+      font-size: 0.8em;
+      color: grey;
+      &::after {
+        content: 'x';
+      }
+    }
+    transition: all 0.1s ease-in-out;
+    &:hover {
+      .apt-image-remove {
+        display: block;
+      }
+      transform: scale(1.05);
+    }
+  }
+
+  .apt-image-preview {
+    position: relative;
+    img {
+      height: 200px;
+    }
+    box-shadow: 0px 0px 8px 4px rgba(1, 1, 1, 0.234);
+  }
+}

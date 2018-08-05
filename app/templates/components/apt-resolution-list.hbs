@@ -1,0 +1,10 @@
+<ul class="list-group">
+  {{#each resolutions as |res index|}}
+    <li class="list-group-item">
+      {{res.width}}x{{res.height}}
+      <button type="button" class="close" onclick= {{action 'removeResolution' res}}>
+        <span>&times;</span>
+      </button>
+    </li>
+  {{/each}}
+</ul>

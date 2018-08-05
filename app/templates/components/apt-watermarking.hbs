@@ -1,0 +1,31 @@
+<h5>Watermarking</h5>
+<hr>
+<p>
+  <small>Add a watermark to your images. You can add either an image, text, or both.</small>
+</p>
+{{#file-dropzone class="apt-dropzone" name="watermarks" as |dropzone queue|}}
+  {{#if image}}
+    <div class="row no-gutters justify-content-center">
+      <div class="col-auto">
+        {{apt-image image=image removeImage=(action 'removeWatermark')}}
+      </div>
+    </div>
+  {{else}}
+    <div class="apt-dropzone-empty apt-watermarking-dropzone text-center py-4">
+      <p class="mb-0">
+        {{#if dropzone.supported}}
+          <p class="mb-0 px-2">Drag and drop a watermark image or</p>
+        {{/if}}
+        {{#file-upload class="mb-0" name="watermarks" accept="image/*" multiple=false onfileadd=(action "watermarkAdded")}}
+          <a tabindex=0>click here to add a watermark image</a>
+        {{/file-upload}}
+      </p>
+    </div>
+  {{/if}}
+{{/file-dropzone}}
+<div class="input-group input-group-sm mt-4">
+  <div class="input-group-prepend">
+    <span class="input-group-text">Watermark Text</span>
+  </div>
+  {{input type="text" class="form-control" placeholder="MyCompany" value=us.watermarkText}}
+</div>

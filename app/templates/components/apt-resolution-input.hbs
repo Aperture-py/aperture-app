@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-end">
+  {{#if adding}}
+    <button type="button" class="btn btn-outline-success btn-sm" onclick= {{action 'saveResolution'}}>Save</button>
+    <button type="button" class="btn btn-outline-danger btn-sm ml-1" onclick= {{action 'cancelAdd'}}>Cancel</button>
+  {{else}}
+    <button type="button" class="btn btn-outline-primary btn-sm" onclick= {{action 'addResolution'}}>Add Resolution</button>
+  {{/if}}
+</div>
+{{#if adding}}
+  <div class="mt-2">
+    <h6>Dimensions:</h6>
+    <div class="row no-gutters">
+      <div class="col-6 pr-2">
+        <div class="input-group input-group-sm">
+          {{input type="text" class="form-control" placeholder="Width" value=resToAdd.width focus-out=(action (mut showWidthError) true)}}
+          <div class="input-group-append">
+            <span class="input-group-text">px</span>
+          </div>
+        </div>
+        {{#if showWidthError}}
+          <div class="apt-input-error">
+            {{validations.attrs.resToAdd.width.message}}
+          </div>
+        {{/if}}
+        {{#if showDupError}}
+          <div class="apt-input-error">
+            Resolution already exists.
+          </div>
+        {{/if}}
+      </div>
+      <div class="col-6 pl-2">
+        <div class="input-group input-group-sm">
+          {{input type="text" class="form-control" placeholder="Height" value=resToAdd.height focus-out=(action (mut showHeightError) true)}}
+          <div class="input-group-append">
+            <span class="input-group-text">px</span>
+          </div>
+        </div>
+        {{#if showHeightError}}
+          <div class="apt-input-error">
+            {{validations.attrs.resToAdd.height.message}}
+          </div>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+{{/if}}

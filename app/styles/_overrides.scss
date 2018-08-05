@@ -1,0 +1,17 @@
+.x-toggle-skewed.x-toggle-btn {
+  transform: none;
+  &::after {
+    transform: none;
+  }
+  &::before {
+    transform: none;
+  }
+}
+
+.x-toggle-skewed.medium {
+  width: auto;
+}
+
+.x-toggle-container {
+  padding: 0em;
+}

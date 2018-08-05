@@ -1,0 +1,8 @@
+<div class="apt-image-container">
+  <div class="{{if isPreview 'apt-image-preview' 'apt-image'}}">
+    {{#unless disableRemove}}
+      <div class="apt-image-remove" onclick= {{action 'removeImage'}}></div>
+    {{/unless}}
+    <img src="{{blobUrl}}" onclick= {{action 'imageSelected'}}>
+  </div>
+</div>

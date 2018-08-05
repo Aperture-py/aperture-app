@@ -4,9 +4,22 @@ export default Component.extend({
   us: service('upload'),
   fq: service('file-queue'),
   image: null,
+  init() {
+    this._super(...arguments);
+    const watermark = this.get('fq')
+      .find('watermarks')
+      .get('files.firstObject');
+    if (watermark) {
+      this.set('image', watermark);
+    }
+  },
   actions: {
     watermarkAdded(file) {
-      if (this.get('image') === null) {
+      if (
+        this.get('fq')
+          .find('watermarks')
+          .get('files.length') == 1
+      ) {
         this.set('image', file);
       } else {
         // Only supporting 1 watermark image for now.

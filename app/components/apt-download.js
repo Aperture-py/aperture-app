@@ -25,7 +25,7 @@ export default Component.extend(Validations, {
   ts: service('toast'),
   dm: null,
   zipName: null,
-  useResFolders: true,
+  zipResFolders: true,
   showDetailedResults: false,
   progress: computed('us.uploadProgress', 'us.uploadComplete', function() {
     if (this.get('us.uploadProgress') == 100 || this.get('us.uploadComplete')) {

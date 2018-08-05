@@ -52,8 +52,10 @@ const DownloadManager = EmberObject.extend({
       useResFolders
     );
 
+    const resFolders = f_imgs.resFolders;
+
     const zip = new JSZip();
-    for (const folder in f_imgs.resFolders) {
+    for (const folder in resFolders) {
       const images = resFolders[folder];
       const zipResFolder = zip.folder(folder);
       for (const dl of images) {
